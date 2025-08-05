@@ -1,0 +1,209 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Marcellus", serif;
+}
+.container {
+}
+body {
+  background-image: url("./assets/home/background-home-desktop.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  transition: all 0.3s;
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 150px;
+  padding: 20px;
+}
+.link {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  background-color: rgba(255, 255, 255, 0.097);
+  backdrop-filter: blur(5px);
+  padding: 0px 100px;
+  margin-right: -20px;
+}
+.link a.active::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background-color: white;
+  bottom: 0;
+  transform: scaleX(1);
+  transition: transform 0.3s ease;
+}
+
+.link a {
+  padding: 30px 0px;
+  color: white;
+  font-weight: 500;
+  text-decoration: none;
+  position: relative;
+  word-spacing: 5px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.link a::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background-color: white;
+  bottom: 0;
+  transform-origin: center;
+  transition: transform 0.3s ease;
+  transform: scaleX(0);
+  /* display: none; */
+}
+.link a:hover::before {
+  transform: scale(1);
+  /* display: block; */
+}
+.line {
+  margin-left: 20px;
+  width: 70%;
+  height: 3px;
+  background-color: rgba(255, 255, 255, 0.176);
+  backdrop-filter: blur(10px);
+}
+.menu {
+  display: none;
+}
+.main-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5% 10%;
+  width: 100%;
+}
+.home-content {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  max-width: 420px;
+}
+.home-content .heading {
+  word-spacing: 10px;
+  color: white;
+  font-size: 1.3rem;
+  letter-spacing: 5px;
+  white-space: nowrap;
+}
+.home-content h1 {
+  color: white;
+  font-weight: 900;
+  font-size: 8rem;
+  letter-spacing: 10px;
+}
+.home-content .details {
+  word-spacing: 10px;
+  color: rgb(188, 188, 188);
+  font-size: 1rem;
+  letter-spacing: 2px;
+}
+.home-explore button {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  outline: none;
+  border: none;
+  font-size: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.732);
+  backdrop-filter: blur(10px);
+  font-weight: 700;
+  letter-spacing: 3px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.home-explore button:hover {
+  backdrop-filter: blur(0px);
+}
+
+@media (max-width: 1024px) {
+  body {
+    background-image: url(./assets/home/background-home-tablet.jpg);
+  }
+  .link {
+    padding: 0 20px;
+  }
+  .main-content {
+    width: 100%;
+    flex-direction: column;
+    margin: 0 auto;
+
+    padding: 5% 5%;
+    justify-content: center;
+  }
+  .home-content {
+    max-width: 90%;
+    align-items: center;
+    margin-right: 0px;
+  }
+  .home-explore {
+    padding-top: 5rem;
+  }
+  .home-content .details {
+    padding: 4rem;
+    font-size: 1.3rem;
+    line-height: 25px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    background-image: url(./assets/home/background-home-mobile.jpg);
+  }
+  .link {
+    width: 60%;
+    height: 90vh;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    top: 100px;
+    right: 20px;
+    background-color: rgba(65, 65, 65, 0.561);
+    backdrop-filter: blur(8px);
+    padding: 2rem;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+    transform: translateX(10%);
+    border-radius: 50px 0px 0px 50px;
+    gap: 5px;
+  }
+  .link.show {
+    transform: translateX(0);
+    display: flex;
+  }
+
+  .menu {
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.24);
+    border-radius: 8px;
+    backdrop-filter: blur(5px);
+     display: block;
+    cursor: pointer;
+  }
+
+  .home-content .heading{
+    word-spacing: 0px;
+    letter-spacing: 0px;
+    padding:20px;
+  }
+  .home-content h1{
+    font-size: 6rem;
+    padding: 20px;
+  }
+  .home-content .details{
+    padding: 20px;
+  }
+}

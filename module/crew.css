@@ -1,0 +1,243 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Marcellus", serif;
+}
+body {
+  background-image: url("../assets/crew/background-crew-desktop.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  transition: all 0.3s;
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 150px;
+  padding: 20px;
+}
+.link {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  background-color: rgba(255, 255, 255, 0.097);
+  backdrop-filter: blur(5px);
+  padding: 0px 100px;
+  margin-right: -20px;
+}
+.link a.active::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    bottom: 0;
+    transform: scaleX(1);
+    transition: transform 0.3s ease;
+}
+
+.link a {
+  padding: 30px 0px;
+  color: white;
+  font-weight: 500;
+  text-decoration: none;
+  position: relative;
+  word-spacing: 5px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.link a::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 3px;
+  background-color: white;
+  bottom: 0;
+  transform-origin: center;
+  transition: transform 0.3s ease;
+  transform: scaleX(0);
+  /* display: none; */
+}
+.link a:hover::before {
+  transform: scale(1);
+  /* display: block; */
+}
+.menu{
+  display: none;
+}
+.line {
+  margin-left: 20px;
+  width: 70%;
+  height: 3px;
+  background-color: rgba(255, 255, 255, 0.176);
+  backdrop-filter: blur(10px);
+}
+.main-content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: 1% 10%;
+  overflow: hidden;
+  border-bottom: 1px solid grey;
+  padding-bottom: 0px;
+  margin-bottom: 10px;
+  box-shadow: 0px 3px 10px 5px rgba(128, 128, 128, 0.409), inset 0 0 10px 5px rgba(128, 128, 128, 0.409);
+  
+}
+.home-content{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 30px;
+    position: relative;
+}
+.heading{
+  word-spacing: 10px;
+    color: rgb(248, 248, 248);
+    font-size: 1.1rem;
+    letter-spacing: 2px;
+    padding-bottom: 30px;
+
+}
+.title{
+     word-spacing: 10px;
+    color: rgb(188, 188, 188);
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+}
+.name{
+      color: white;
+    font-weight: 900;
+    font-size: 2.5rem;
+    letter-spacing: 10px;
+    white-space: nowrap;
+}
+.details{
+      word-spacing: 5px;
+    color: rgb(188, 188, 188);
+    font-size: 1rem;
+    letter-spacing: 1px;
+    max-width: 400px;
+}
+.crew-image{
+  /* border-bottom: 1px solid grey; */
+  width: 300px;
+  height: 500px;
+  z-index: -1;
+  padding: 2px;
+
+}
+.crew-image img{
+  min-width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.dots{
+
+  display: flex;
+  align-items: center;
+}
+.dots p{
+  width: 30px;
+  height: 30px;
+  background-color: rgba(176, 174, 174, 0.661);
+  margin: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  /* position: relative; */
+}
+.dots p.active{
+  /* width: 30px;
+  height: 30px; */
+  background-color: white;
+  /* margin: 10px;
+  border-radius: 50%;
+  cursor: pointer; */
+}
+
+@media (max-width: 1024px){
+  .link{
+    padding: 0px 20px;
+  }
+  .main-content{
+    flex-direction: column;
+  }
+  .home-content{
+    width: 100%;
+    
+  }
+  .title, .name, .details{
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .dots{
+  margin: 0 auto;
+  padding-bottom: 2rem;
+  }
+  .dots p{
+    width: 20px;
+    height: 20px;
+  }
+  .crew-image{
+    width: 90%;
+    /* margin: 0 auto; */
+    margin-left: 2rem;
+    height: auto;
+  }
+}
+
+@media (max-width: 768px){
+    body {
+    background-image: url(../assets/crew/background-crew-mobile.jpg);
+  }
+  .link {
+    width: 60%;
+    height: 90vh;
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    position: absolute;
+    top: 100px;
+    right: 20px;
+    background-color: rgba(65, 65, 65, 0.561);
+    backdrop-filter: blur(8px);
+    padding: 2rem;
+    z-index: 1000;
+    transition: transform 0.3s ease;
+    transform: translateX(10%);
+    border-radius: 50px 0px 0px 50px;
+    gap: 5px;
+  }
+  .link.show {
+    transform: translateX(0);
+    display: flex;
+  }
+  .menu {
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.24);
+    border-radius: 8px;
+    backdrop-filter: blur(5px);
+      display: block;
+    cursor: pointer;
+  }
+  .name{
+    white-space: wrap;
+    text-align: center;
+    letter-spacing: 2px;
+  }
+  .crew-image{
+    margin: 0px;
+    height: 450px;
+    width: 300px;
+    margin: 0 auto;
+  }
+    .crew-image img{
+      height: 100%;
+    }
+
+}
